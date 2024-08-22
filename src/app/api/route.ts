@@ -3,7 +3,7 @@ import path from 'path';
 import { promisify } from 'util';
 import { spawn } from 'child_process';
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
 	const inputString = 'test';
 	// Execute the Python script
 	// const pythonScriptPath = path.join(process.cwd(), 'scriptTest.py');
