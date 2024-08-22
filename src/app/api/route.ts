@@ -1,12 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import { promisify } from 'util';
-import { exec as execCallback } from 'child_process';
 import { spawn } from 'child_process';
 
-const exec = promisify(execCallback);
-
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function GET(req: NextRequest, res: NextResponse) {
 	const inputString = 'test';
 	// Execute the Python script
 	// const pythonScriptPath = path.join(process.cwd(), 'scriptTest.py');
