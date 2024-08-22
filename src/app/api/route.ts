@@ -9,7 +9,9 @@ const exec = promisify(execCallback);
 export async function GET(req: NextRequest, res: NextResponse) {
 	const inputString = 'test';
 	// Execute the Python script
-	const pythonScriptPath = path.join(__dirname, 'scriptTest.py');
+	const pythonScriptPath = path.join(process.cwd(), 'scriptTest.py');
+
+	// const pythonScriptPath = path.join(__dirname, 'scriptTest.py');
 	// const pythonScriptPath = `C:/Users/Notandi/Documents/24vor/passapnext/src/app/api/scriptTest.py`;
 	// const { stdout, stderr } = 
 	// await (exec(`python ${pythonScriptPath}`).then(s => console.log(s)));
