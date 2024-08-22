@@ -14,13 +14,14 @@ export const ContactForm: FC = () => {
 	const [wait, setWait] = useState(false);
 	async function onSubmit(data: FormData) {
 		try {
-			if (true) {
+			if (data.name && data.message) {
 				try {
 					setWait(true)
 					const res = await fetch('/api/', {
 						method: 'POST',
 						body: JSON.stringify({
-
+							name: data.name,
+							message: data.message
 						}),
 						headers: {
 							'content-type': 'application/json'

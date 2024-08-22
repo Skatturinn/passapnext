@@ -1,4 +1,4 @@
-import { logger } from './logger.js';
+import { logger } from './logger';
 import pg from 'pg';
 
 const connectionString = process.env.DATABASE_URL
@@ -21,7 +21,7 @@ pool.on('error', (err: Error) => {
 	process.exit(-1);
 });
 
-export async function query(q: string, values: Array<number | string | boolean | Date | null> = []) {
+export async function query(q: string, values: Array<number | string | boolean | Date | null | number[] | string[]> = []) {
 	let client;
 	try {
 		client = await pool.connect();
@@ -42,10 +42,18 @@ export async function query(q: string, values: Array<number | string | boolean |
 	}
 }
 
-export async function insertPattern(pattern_matrix: Array<string>, vel_id: number, username: string) {
+export async function insertPattern(vel_id: number, name: string) {
 	const q = `
-	INSERT INTO Pattern(pattern_matrix, vel_id, username, status) VALUES ($1, $2, $3, $4) RETURNING id;
+	INSERT INTO Pattern(vel_id, name, status) VALUES ($1, $2, $3) RETURNING id;
 	`
-	const result = await query(q, [`{${pattern_matrix}`, vel_id, username]);
+	const result = await query(q, [vel_id, name, false]);
+	return result && result.rows[0] || null;
+}
+
+export async function insertRow(pattern_id: number, value: string, index: number) {
+	const q = `
+	INSERT INTO PatternMatrix(pattern_id,value,index) VALUES ($1, $2, $3) RETURNING index;
+	`
+	const result = await query(q, [pattern_id, value, index]);
 	return result && result.rows[0] || null;
 }
