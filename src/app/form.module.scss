@@ -1,0 +1,153 @@
+$bccolor: #0F0E16;
+
+.loading {
+	height: 100vh;
+	width: 100vw;
+	z-index: 10000;
+	position: fixed;
+	cursor: wait;
+	margin: -125px;
+	background: -webkit-linear-gradient($bccolor, transparent);
+
+	&::before {
+		content: 'Reyni að senda';
+		animation-name: loading;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 3rem;
+		font-weight: 400;
+	}
+}
+
+@keyframes loading {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+$bccolor: #0F0E16;
+
+.form {
+	font-size: 2rem;
+	margin: 0 0 0;
+	font-family: inherit;
+	// display: flex;
+	// gap: 0em;
+	// flex-direction: column;
+	// width: 90%;
+	filter: drop-shadow(0px 0px 50px #000000);
+
+	.field {
+		font-family: inherit;
+		margin: 1.5em 0 0;
+
+
+		&:has(textarea:not(:placeholder-shown)),
+		&:has(textarea:focus),
+		&:has(input:not(:placeholder-shown)),
+		&:has(input:focus) {
+			label {
+				transform: translate(0, -1.25em);
+				padding: 0 0 0 0;
+				pointer-events: none;
+			}
+		}
+
+		input:focus+label,
+		input:not(:placeholder-shown)+label {
+			transform: translate(0, -1.25em);
+			padding: 0 0 0 0;
+			pointer-events: none;
+		}
+
+		label {
+			font-family: inherit;
+			font-weight: 100;
+			transition: transform 0.33s ease-out, padding 1s ease;
+			position: absolute;
+			padding: 0.5em 0 0 1em;
+			pointer-events: none;
+			background: transparent;
+		}
+
+		textarea {
+			height: 15em;
+			width: 15em;
+		}
+
+		textarea,
+		input {
+			pointer-events: auto;
+			font-size: 2rem;
+			font-family: inherit;
+			transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+			box-shadow: 0 0 0 black;
+			background-color: $bccolor;
+			border-radius: 1em;
+			// padding: 0 1em;
+			padding: 0.5em 1em;
+			color: white;
+
+			&:focus {
+				outline: none;
+				border-color: white;
+				box-shadow: 0em 0.125em 0.75em 0.125em black;
+				transition: border 1s;
+			}
+
+			// padding: 0.5em 0;
+			width: 100%;
+			border: 1px solid $bccolor;
+		}
+	}
+
+	.button {
+		// margin: 2rem 0 0;
+		font-size: 3rem;
+		width: 100%;
+		height: 2em;
+		color: white;
+		font-weight: 100;
+		background: transparent;
+		border-radius: 1em;
+		transition: scale 1s;
+
+		&:hover,
+		&:focus-visible {
+			cursor: pointer;
+			font-weight: 400;
+			scale: 1.1;
+			transition: scale 1s;
+			background-color: white;
+			color: $bccolor;
+			border-color: $bccolor;
+			outline: none;
+			border-color: white;
+			// box-shadow: 0em 0.005em 1.95em 0.005em black;
+		}
+	}
+}
+
+.centertext {
+	text-align: center;
+
+	address {
+		a {
+			font-size: 2.5rem;
+			border-radius: 1em;
+			padding: 0 1em;
+		}
+	}
+}
