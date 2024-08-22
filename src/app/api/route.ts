@@ -17,7 +17,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
 	// const { stdout, stderr } = 
 	// await (exec(`python ${pythonScriptPath}`).then(s => console.log(s)));
 	const result = await new Promise((resolve, reject) => {
-		const pythonProcess = spawn('python', ['src/' + relativePath]);
+		const pythonProcess = spawn('python3', ['src/' + relativePath]);
 
 		let output = '';
 		let error = '';
