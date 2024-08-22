@@ -20,17 +20,32 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+Notandi -> Síða <--> DB <--> vél
 
-To learn more about Next.js, take a look at the following resources:
+## PLAN // TODO **
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Forsíða
+	* Navbar með undirsíðum
+	* Listi af tendum vélum
+	* Um mig 
+* Síða vélar
+	* Sýnir allar beiðnir
+		* Beiðnir eru geimdar í db, {matrix,status,teksta beiðni,?mynd}
+		* Gera beiðni // form
+* Um verkefni
+	* Almennur teksti
+	* Tekstur hvers einstaklings
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Bæta við vél
 
-## Deploy on Vercel
+* Setja status allra vekefna sem done
+* Eyða beiðni úr db
+* Byrja aftur að sækja munstur frá neti ( vegna uppsetningu mun loopa enda þegar engin munztur eru)
+* Sækja beint úr db, sleppa bull hugmyndinni minni
+* Local og veraldar vefur deila bara db
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## COMPLETE
+* Búa til schema á admin // serverinn sem keyrir arduino
