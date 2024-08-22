@@ -17,8 +17,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
 	// const { stdout, stderr } = 
 	// await (exec(`python ${pythonScriptPath}`).then(s => console.log(s)));
 	const result = await new Promise((resolve, reject) => {
-		const pythonProcess = spawn('python3', ['src/' + relativePath]);
+		// const pythonProcess = spawn('python3', ['src/' + relativePath]);
+		const pythonProcess = spawn('python3', ['--version']);
 
+		// --version
 		let output = '';
 		let error = '';
 
