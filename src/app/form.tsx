@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useState } from "react"
 import { useForm } from "react-hook-form";
 import styles from "./form.module.scss"
+import Image from 'next/image';
 
 export type FormData = {
 	name: string;
@@ -10,6 +11,7 @@ export type FormData = {
 	message: string;
 };
 export const ContactForm: FC = () => {
+	let mynd = '';
 	const { register, handleSubmit } = useForm<FormData>();
 	const [wait, setWait] = useState(false);
 	async function onSubmit(data: FormData) {
@@ -29,9 +31,12 @@ export const ContactForm: FC = () => {
 					})
 					setWait(false)
 					if (res.status >= 200 && res.status < 300) {
-						window.alert('Skilaboð mótekin' + JSON.stringify(await res.json()))
-						window.history.pushState({}, '', '/');
-						window.history.go();
+						const m = await res.json()
+						console.log(m)
+						mynd = m.image_url
+						window.alert('Skilaboð mótekin' + JSON.stringify(m))
+						// window.history.pushState({}, '', '/');
+						// window.history.go();
 					} else {
 						throw new Error(res.statusText)
 

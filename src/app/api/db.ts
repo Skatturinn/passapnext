@@ -42,11 +42,11 @@ export async function query(q: string, values: Array<number | string | boolean |
 	}
 }
 
-export async function insertPattern(vel_id: number, name: string) {
+export async function insertPattern(vel_id: number, name: string, length: number) {
 	const q = `
-	INSERT INTO Pattern(vel_id, name, status) VALUES ($1, $2, $3) RETURNING id;
+	INSERT INTO Pattern(vel_id, name, status, length) VALUES ($1, $2, $3, $4) RETURNING id;
 	`
-	const result = await query(q, [vel_id, name, false]);
+	const result = await query(q, [vel_id, name, false, length]);
 	return result && result.rows[0] || null;
 }
 
