@@ -5,7 +5,6 @@ import { ContactForm } from "./form";
 export default function Home() {
 	return (
 		<main className={styles.main}>
-			test
 			<ContactForm />
 		</main>
 	);

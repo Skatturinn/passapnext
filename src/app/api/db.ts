@@ -42,11 +42,19 @@ export async function query(q: string, values: Array<number | string | boolean |
 	}
 }
 
-export async function insertPattern(vel_id: number, name: string, length: number) {
+export async function insertPattern(vel_id: number, name: string, length: number, matrix: string) {
 	const q = `
-	INSERT INTO Pattern(vel_id, name, status, length) VALUES ($1, $2, $3, $4) RETURNING id;
+	INSERT INTO Pattern(vel_id, name, status, length, matrix) VALUES ($1, $2, $3, $4, $5) RETURNING id;
 	`
-	const result = await query(q, [vel_id, name, false, length]);
+	const result = await query(q, [vel_id, name, false, length, matrix]);
+	return result && result.rows[0] || null;
+}
+
+export async function getPattern(id: number) {
+	const q = `
+	SELECT * FROM Pattern WHERE id = $1;
+	`
+	const result = await query(q, [id]);
 	return result && result.rows[0] || null;
 }
 

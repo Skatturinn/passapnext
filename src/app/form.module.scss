@@ -1,4 +1,5 @@
-$bccolor: #0F0E16;
+$bccolor: #fff;
+$hicolor: #180ea2;
 
 .loading {
 	height: 100vh;
@@ -6,7 +7,7 @@ $bccolor: #0F0E16;
 	z-index: 10000;
 	position: fixed;
 	cursor: wait;
-	margin: -125px;
+	// margin: -125px;
 	background: -webkit-linear-gradient($bccolor, transparent);
 
 	&::before {
@@ -37,9 +38,10 @@ $bccolor: #0F0E16;
 	}
 }
 
-$bccolor: #0F0E16;
+$bccolor: #fff;
 
 .form {
+	max-width: 800px;
 	font-size: 2rem;
 	margin: 0 0 0;
 	font-family: inherit;
@@ -47,7 +49,7 @@ $bccolor: #0F0E16;
 	// gap: 0em;
 	// flex-direction: column;
 	// width: 90%;
-	filter: drop-shadow(0px 0px 50px #000000);
+	filter: drop-shadow(0px 10px 10px $hicolor);
 
 	.field {
 		font-family: inherit;
@@ -74,7 +76,7 @@ $bccolor: #0F0E16;
 
 		label {
 			font-family: inherit;
-			font-weight: 100;
+			font-weight: 400;
 			transition: transform 0.33s ease-out, padding 1s ease;
 			position: absolute;
 			padding: 0.5em 0 0 1em;
@@ -98,18 +100,19 @@ $bccolor: #0F0E16;
 			border-radius: 1em;
 			// padding: 0 1em;
 			padding: 0.5em 1em;
-			color: white;
+			// margin: 1em 0;
+			color: black;
 
 			&:focus {
 				outline: none;
 				border-color: white;
-				box-shadow: 0em 0.125em 0.75em 0.125em black;
+				// box-shadow: 0em 0em 0.5em 0em $hicolor;
 				transition: border 1s;
 			}
 
 			// padding: 0.5em 0;
 			width: 100%;
-			border: 1px solid $bccolor;
+			border: 1px solid $hicolor;
 		}
 	}
 
@@ -123,6 +126,9 @@ $bccolor: #0F0E16;
 		background: transparent;
 		border-radius: 1em;
 		transition: scale 1s;
+		background-color: $hicolor;
+		margin: 1em 0;
+
 
 		&:hover,
 		&:focus-visible {
@@ -130,11 +136,11 @@ $bccolor: #0F0E16;
 			font-weight: 400;
 			scale: 1.1;
 			transition: scale 1s;
-			background-color: white;
+			background-color: $hicolor;
 			color: $bccolor;
 			border-color: $bccolor;
 			outline: none;
-			border-color: white;
+			border-color: $hicolor;
 			// box-shadow: 0em 0.005em 1.95em 0.005em black;
 		}
 	}

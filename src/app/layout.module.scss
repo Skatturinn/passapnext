@@ -1,0 +1,44 @@
+$hicolor: #180ea2;
+
+.latte-slice {
+	grid-column-end: span 1;
+	grid-row: span 1;
+	// background-color: var(--latte);
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
+	justify-content: center;
+}
+
+.triangle-corner-brown-bottom {
+	margin: auto 0 0;
+	width: 0;
+	height: 0;
+	// border-bottom: 3.5em solid var(--dark-brown);
+	border-left: 100vw solid transparent;
+}
+
+.triangleCornerBottomWhite {
+	margin: auto 0 0;
+	width: 0;
+	height: 0;
+	border-bottom: 1em solid white;
+	border-left: 100vw solid transparent;
+}
+
+.navigation {
+	// width: fit-content;
+	// max-width: 50vw;
+	// margin: 0 0 0 25vw;
+	color: white;
+	background-color: $hicolor;
+
+	padding: 1em 0 0;
+
+	// margin: 0 0 1em;
+	.title {
+		text-align: center;
+		padding: 1em;
+	}
+}
