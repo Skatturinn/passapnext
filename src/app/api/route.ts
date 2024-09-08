@@ -7,13 +7,16 @@ const openai = new OpenAI();
 
 export async function POST(req: NextRequest, res: NextResponse) {
 	let { name, message, vel_id } = await req.json()
+	console.log(`${message}`)
 	const response = await openai.images.generate({
 		model: "dall-e-3",
 		prompt: `White background, detailed outlines, ${message}`,
 		n: 1,
 		size: "1024x1024",
 	});
+	console.log(response)
 	const image_url = response.data[0].url;
+	console.log(image_url)
 	// const image_url = 'https://ftp.cvut.cz/mirrors/ctan.org/macros/latex/contrib/mwe/example-image-1x1.jpg'
 	if (image_url) {
 		const s = await imageToMatrix(image_url, 100);
