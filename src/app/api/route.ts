@@ -3,6 +3,8 @@ import sharp from 'sharp';
 import OpenAI from "openai";
 import { imageToMatrix, separateColors } from './snaebba';
 import { getPattern, insertPattern, insertRow } from './db';
+export const maxDuration = 20; // 5 seconds
+export const dynamic = 'force-dynamic';
 const openai = new OpenAI();
 
 export async function POST(req: NextRequest, res: NextResponse) {
